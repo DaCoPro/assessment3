@@ -11,7 +11,7 @@
 <body>
     <h1>Wacky Widgets</h1>
 
-   
+   {{total_quant}}
     {% if items|length == 0 %}
         <h3>There are no widgets yet</h3>
         <hr>
@@ -33,6 +33,11 @@
                     <td> <a class="deleteX" href="{% url 'delete_item' item.id %}">X</a></td>
                 </tr>
             {% endfor %}
+                <tr>
+                    <td>Total Quantity:</td>
+                    <td>{{total_quant}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>

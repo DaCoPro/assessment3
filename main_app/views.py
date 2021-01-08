@@ -13,7 +13,13 @@ from .forms import ItemForm
 def index(request):
     items = Stuff.objects.all()
     item_form = ItemForm()
-    return render(request, 'index.html', {'items': items, 'item_form': item_form})
+    total_quant = 0
+    for item in items:
+        total_quant += item.quantity
+    return render(request, 'index.html', {
+        'items': items, 
+        'item_form': item_form,
+        'total_quant': total_quant})
 
 def add_item(request):
   print('working')

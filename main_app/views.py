@@ -22,3 +22,7 @@ def add_item(request):
     new_item = form.save(commit=False)
     new_item.save()
   return redirect('index')
+
+def delete_item(request, item_id):
+  Stuff.objects.get(id=item_id).delete()
+  return redirect('/')

@@ -14,13 +14,24 @@
         <h3>There are no widgets yet</h3>
         <hr>
     {% else %}
-        {% for item in items %}
-        <h3>{{item.name}}</h3>
-        {% endfor %}
-
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td> {{ item.name }} </td>
+                <td> {{ item.quantity }} </td>
+                <td> <a href="{% url 'delete_item' item.id %}">X</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
     {% endif %}
 
-    <form class="pure-form" action="{% url 'add_item' %}" method="post">
+    <form action="{% url 'add_item' %}" method="post">
         {% csrf_token %}
         <table>
         {{ item_form.as_p }}

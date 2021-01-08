@@ -8,6 +8,14 @@
 </head>
 <body>
     <h1>Wacky Widgets</h1>
+
+   
+    {% if items|length == 0 %}
+        <h3>There are no widgets yet</h3>
+        <hr>
+    {% else %}
+        <h3>There are widgets</h3>
+    {% endif %}
     
 </body>
 </html>

@@ -3,6 +3,6 @@ from .models import Stuff
 
 # Create your views here.
 def index(request):
-    items = Stuff.object.all()
+    items = Stuff.objects.all()
     return render(request, 'index.html', {'items': items})
 
